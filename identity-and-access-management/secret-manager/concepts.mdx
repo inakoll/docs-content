@@ -8,6 +8,32 @@ content:
 tags: secret-manager secret version
 ---
 
+<Concept>
+
+## Ephemeral policy
+
+An ephemeral policy is a statement that defines the lifetime of a secret and its versions, using either of the following options:
+
+- **Single access**: allows you to set your secret versions to **expire after one single access**.
+- **Time to Live**: allows you to set a time frame of up to one year, during which your secret versions are valid and accessible.
+
+The ephemeral policy also allows you to decide whether to disable or delete your secret's versions, once the secret has expired.
+
+<Message type="important">
+  - The ephemeral policy can only be applied to a secret at creation, and **cannot be removed** once applied.
+  - If applied on a secret, all its versions inherit from the policy.
+</Message>
+
+</Concept>
+
+<Concept>
+
+## Ephemeral secret
+
+An ephemeral secret is a secret that has a limited lifetime, enforced by an [ephemeral policy](#ephemeral-policy).
+All the secret's versions automatically inherit from the ephemeral policy.
+
+</Concept>
 
 <Concept>
 
@@ -21,7 +47,7 @@ Folders are the underlying structure for organizing and grouping your secrets in
 
 ## Path
 
-A path refers to the directory structure to access your folders and secrets. Paths contain your folders subfolders, secrets, and versions. Each path is prefixed with a slash.
+A path refers to the directory structure to access your folders and secrets. Paths contain your folders, subfolders, secrets, and versions. Each path is prefixed with a slash.
 
 For example, if you create a folder `my-folder` within the path `/my-path`, your folder can be accessed at the `/my-path/my-folder` path.
 
@@ -76,7 +102,7 @@ Scaleway's Secret Manager can be managed using [APIs](https://www.scaleway.com/e
 
 ## Secret protection
 
-Secret protection is a feature that prevents the deletion of your secrets.  Users holding the `SecretManagerFullAccess`, `SecretManagerSecretWrite`, and `AllProductsFullAccess` [permission sets](/identity-and-access-management/iam/reference-content/permission-sets/) can enable it, ensuring that although your secrets can be accessed and modified, they remain **impossible to delete**.
+Secret protection is a feature that prevents the deletion of your secrets. Users holding the `SecretManagerFullAccess`, `SecretManagerSecretWrite`, and `AllProductsFullAccess` [permission sets](/identity-and-access-management/iam/reference-content/permission-sets/) can enable it, ensuring that although your secrets can be accessed and modified, they remain **impossible to delete**.
 This ensures the protection of critical information against accidental deletion while maintaining secret management flexibility.
 
 </Concept>
